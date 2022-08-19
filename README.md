@@ -1,2 +1,4 @@
-# LeetCode-Solutions
-Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub](https://github.com/QasimWani/LeetHub)
+<b># LeetCode-Solutions</b>
+
+LeetCode Solutions Created using Java Beginning from July 2022
+
