@@ -36,7 +36,7 @@ class Solution {
                     q.offer(current.right);
                 }
             }
-                res.add(level);
+            res.add(level);
         }
         return res;
         
