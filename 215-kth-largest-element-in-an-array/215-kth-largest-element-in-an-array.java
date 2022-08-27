@@ -23,15 +23,15 @@ class Solution {
     private int partition(int[] arr, int left, int right, int pivot) {
         int pIndex = arr[pivot];
         swap(arr, pivot, right);
-        pIndex = left;
+        pivot = left;
         
         for(int i = left; i <= right; i++ ) {
-            if(arr[i] <= arr[right]) {
-                swap(arr, i, pIndex);
-                pIndex++;
+            if(arr[i] <= pIndex) {
+                swap(arr, i, pivot);
+                pivot++;
             }
         }
-        return pIndex - 1;
+        return pivot - 1;
         
     }
     
