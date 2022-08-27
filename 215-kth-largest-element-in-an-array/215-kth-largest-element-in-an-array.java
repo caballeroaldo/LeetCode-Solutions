@@ -20,18 +20,18 @@ class Solution {
         
     }
     
-    private int partition(int[] arr, int left, int right, int pivot) {
-        int pIndex = arr[pivot];
-        swap(arr, pivot, right);
-        pivot = left;
+    private int partition(int[] arr, int left, int right, int pIndex) {
+        int pivot = arr[pIndex];
+        swap(arr, pIndex, right);
+        pIndex = left;
         
         for(int i = left; i <= right; i++ ) {
-            if(arr[i] <= pIndex) {
-                swap(arr, i, pivot);
-                pivot++;
+            if(arr[i] <= pivot) {
+                swap(arr, i, pIndex);
+                pIndex++;
             }
         }
-        return pivot - 1;
+        return pIndex - 1;
         
     }
     
