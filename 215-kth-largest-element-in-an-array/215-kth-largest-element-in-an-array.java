@@ -1,43 +1,44 @@
 class Solution {
     public int findKthLargest(int[] nums, int k) {
-        return quickselect(nums, 0, nums.length - 1, nums.length - k);
+        return quickSelect(nums, 0, nums.length - 1, nums.length - k);
     }
     
-    private int quickselect(int[] arr, int left, int right, int k) {
+    private int quickSelect(int[] nums, int left, int right, int kth) {
         if(left == right) {
-            return arr[left];
+            return nums[left];
         }
         
-        int pivot = new Random().nextInt(right - left + 1)  + left;
-        pivot = partition(arr, left, right, pivot);
+        int pIndex = new Random().nextInt(right - left + 1) + left;
+        pIndex = partition(nums, left, right, pIndex);
         
-        if(pivot == k) {
-            return arr[k];
-        } else if(pivot < k) {
-            return quickselect(arr, pivot + 1, right, k);
+        if(pIndex == kth) {
+            return nums[pIndex];
+        } else if(pIndex < kth) {
+            return quickSelect(nums, pIndex + 1, right, kth);
         }
-        return quickselect(arr, left, pivot - 1, k);
+        return quickSelect(nums, left, pIndex - 1, kth);
         
     }
     
-    private int partition(int[] arr, int left, int right, int pIndex) {
-        int pivot = arr[pIndex];
-        swap(arr, pIndex, right);
+    private int partition(int[] nums, int left, int right, int pIndex) {
+        int pivot = nums[pIndex];
+        swap(nums, pIndex, right);
         pIndex = left;
         
-        for(int i = left; i <= right; i++ ) {
-            if(arr[i] <= pivot) {
-                swap(arr, i, pIndex);
+        for(int i = left; i <= right; i++) {
+            if(nums[i] <= pivot) {
+                swap(nums, i, pIndex);
                 pIndex++;
             }
         }
-        return pIndex - 1;
         
+        return pIndex -1;
     }
     
-    private void swap(int[] arr, int a, int b) {
-        int temp = arr[a];
-        arr[a] = arr[b];
-        arr[b] = temp;
+    private void swap(int[] nums, int x, int y) {
+        int temp = nums[x];
+        nums[x] = nums[y];
+        nums[y] = temp;
     }
+    
 }
