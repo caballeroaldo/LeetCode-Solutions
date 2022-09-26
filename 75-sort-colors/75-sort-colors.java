@@ -9,14 +9,14 @@ class Solution {
         }
         
         int ones = zeros;
-        for(int j = 0; j < nums.length; j++ ) {
+        for(int j = ones; j < nums.length; j++ ) {
             if(nums[j] == 1) {
                 swap(nums,j,ones);
                 ones++;
             }
         }
         int twos = ones;
-        for(int k = 0; k < nums.length && twos < nums.length; k++) {
+        for(int k = twos; k < nums.length && twos < nums.length; k++) {
             if(nums[k] == 2 ) {
                 swap(nums,k,twos);
                 twos++;
